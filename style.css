@@ -23,18 +23,20 @@ body {
   box-shadow: 0 0 .6rem .1rem;
 }
 
-.btn-grid {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 1rem;
+.flex-btn {
   margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn {
   background-color: lightgreen;
   border: 1px solid darkgreen;
+  width: 12rem;
   border-radius: 100rem;
   padding: .5rem;
+  margin: .5rem;
   color: #333;
   outline: none;
 }
