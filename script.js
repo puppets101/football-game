@@ -1,36 +1,38 @@
+// Define state
+let currentScene = 0;
+const scenes = [
+  {
+    text: `You find yourself in a football game and it's happends to be the World Cup final the year 2052. On your feets you see a pair of what looks like shoes but with cables instead of shoestrings going in to your legs. You see a green and a red button on this so called shoes and you decide to press one of them. Witch button do you press?`,
+    options: ['Press green button', 'Press red button'],
+    nextScene: [1, 0]
+  },
+  {
+    text: `You hear a swoosh comming from underneath you and you realize the football boots in year 2052 has a hover effect. You make a couple of moves and find, to your relief, that the boots are not too much of a challange. Simultaneously the football game is in motion and you decide to join the game, after all you were a football star at a young age. What is your first action?`,
+    options: ['Call for the ball', 'Talk to a guy wearing the same shirt'],
+    nextScene: []
+  }
+];
 
+// Inventory
+const inventory = [''];
 
-function startGame() {
+// Run application 
+window.onload = showText;
+
+// Define the actions 
+function showText() {
+  const answer = prompt(scenes[currentScene].text);
+  handleUserChoise(answer);
+}
+
+function handleUserChoise(answer) {
+  console.log(answer);
+  if (answer === scenes[currentScene].options[0]) {
+    currentScene = scenes[currentScene].nextScene[0];
+  }
+  if (answer === scenes[currentScene].options[1]) {
+    currentScene = scenes[currentScene].nextScene[1];
+  }
+
   showText();
 }
-
-let textElement = document.getElementById('text');
-let optionButtons = document.getElementById('option-buttons');
-
-function showText() {
-  textElement.innerText = 'You find yourself with the ball on the opponents half of the pitch with two defenders comming at you. What do you do?';
-  optionButtons.innerHTML = `<button onclick="passBall()" class="btn">Pass the ball</button> <button onclick="dribbleBall()" class="btn">Dribble the ball</button>`; 
-}
-
-function passBall() {
-  textElement.innerText = `Great! You passed a great ball out on the wing to your teammate. Who's starting running down the wing to cross the ball in to the dandger zone. Where do you position yourself?`;
-  optionButtons.innerHTML = `<button onclick="insidePenaltyArea()" class="btn">Inside the penalty area</button> <button onclick="outsidePenaltyArea()" class="btn">Outside the penalty area</button>`;
-}
-
-function dribbleBall() {
-  textElement.innerText = `Ouch! You overestimated your skills to dribble and the opponent's gets hold of the ball and quickly counterattacks and score. You and your team lost the game.`;
-  optionButtons.innerHTML = `<button onclick="startGame()" class="btn">Restart Game</button>`;
-}
-
-function insidePenaltyArea() {
-  textElement.innerText = `You make a run inside the penalty area but the cross is far to off for you to reach the ball with your head. You swear at your teammate and start to jog back.`;
-  optionButtons.innerHTML = `<button onclick="startGame()" class="btn">Restart Game</button>`;
-}
-
-function outsidePenaltyArea() {
-  textElement.innerText = `You positioning yourself just outside the penelty area and when the cross comes you time the ball perfect and hit it with all the power you've got. The ball takes a bow and finds its way into the goal. You've won the game!`;
-  optionButtons.innerHTML = `<button onclick="startGame()" class="btn">Play Again</button>`;
-}
-
-
-
