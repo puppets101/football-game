@@ -5,85 +5,92 @@ const optionButtonsElement = document.getElementById('option-buttons');
 // Define state
 let currentScene = 0;
 const scenes = [
-
-  {
-    id: 1,
-    text: `You find yourself in a football game and it's happends to be the World Cup final the year 2052. On your feets you see a pair of what looks like shoes but with blinking cables instead of shoestrings going in to your legs. You see a green and a red button on this so called shoes and you decide to press one of them. Witch button do you press?`,
-    options: [
-      {
-        text: 'Press green button',
-        nextScene: 2
-      },
-      {
-        text: 'Press red button',
-      }
-    ]
+  { // 0
+    text: `You are playing football. Do you want to pass or shoot?`,
+    options: ['pass', 'shoot'],
+    nextScene: [1, 2]
   },
-
-  {
-    text: `You hear a swoosh comming from underneath you and you realize the football boots in year 2052 has a hover effect. You make a couple of moves and find, to your relief, that the boots are not too much of a challange. Simultaneously the football game is in motion and you decide to join the game, after all you were a football star at a young age. What is your first action?`,
-    options: [
-      {
-        id: 2,
-        text: 'Call for the ball',
-        nextScene: 3
-      },
-      {
-        text: 'Get hold of a teammate'
-      }
-    ]
+  { // 1
+    text: `Nice pass! Do you want to stay behind or run along?`,
+    options: ['stay behind', 'run along'],
+    nextScene: [3, 4]
   },
-
-  {
-    text: `The cables stops blinking and only a few seconds later a hovering stretcher comes for you, pick you up, and removing you from the field.`,
+  { // 2
+    text: `You too off the goal and your shot just gets to the opponents. Do you want to tackle or take it easy?`,
+    options: ['tackle', 'take it easy'],
+    nextScene: [5, 6]
+  },
+  { // 3
+    text: `You stay behind. The opponents intercept the ball and comes towards you. Do you slide tackle or tackle?`,
+    options: ['slide tackle', 'tackle'],
+    nextScene: [5, 6]
+  },
+  { // 4
+    text: `You take the run into the box and your teammate pass the ball back to you. You are close to the goal and the goalkeeper comes out. Do you shoot left or right?`,
+    options: ['left', 'right'],
+    nextScene: [8, 9]
+  },
+  { // 5
+    text: `You slide tackle but you don't time it well and only hits the opponent. The ref picks up his red card and you are out of the game.`,
+    nextScene: [14]
+  },
+  { // 6
+    text: `The tackle hits perfect and you win the ball back. Do you pass or dribble?`,
+    options: ['pass', 'dribble'],
+    nextScene: [1, 9]
+  },
+  { // 7
+    text: `You take it easy and the manager becomes furious. He decide to make a substitute and you won't finnish the game`,
     nextScene: []
   },
-
-  {
-    text: `No one seems to hear you and you realize the whole arena, which probably contains around 200.000 supporters, is not making a sound. You take of your helmet and with that the hovering shoes stops working. You fall to the ground and is carried out of the field by a hovering strecher.`,
-    nextScene: []
+  { // 8
+    text: `You try to shoot to the left but just when you hit the ball you trample obliquely. You sprained your ankle and have to come off the pitch injured.`,
+    nextScene: [12] //END INJURED
   },
+  { // 9
+    text: `You shoot to the right and completely fools the goalkeeper. You've scored and your team wins the game!`,
+  },
+  { // 10
+    text: `You try to dribble but overetimated you skills. The opponent intercept the ball and score. You lose.`,
+    nextScene: [12] //END LOST
+  },
+  { // 11 WIN
+    text: `Congratulation! You've won the game!`,
+  },
+  { // 12 LOST
+    text: `Unfortunatly you've lost the game.`,
+  },
+  { // 13 INJURED
+    text: `You injured yourself and have to sit out the rest of the game.`,
+  },
+  { // SENT OFF
+    text: `You got a red card and are off for the rest of the game.`
+  },
+  { // SUBBED
+    text: `You got subbed of the game by the manager.`
+  }
 
 ];
 
-let state = {};
-
-function startGame() {
-  state = {};
-  showScenes(1);
-}
+// Run program on load
+window.onload = presentScene;
 
 
 // Define the actions 
-function presentScene(textNodeIndex) {
-  textElement.innerText = scenes[currentScene].text; 
-
-  while (optionButtonsElement.firstChild) {
-    optionButtonsElement.removeChild(optionButtonsElement.firstChild);
-  }
-
-  options.forEach(option => {
-    if (showOption(option)) {
-      const button = document.createElement('button');
-      button.innerText = option.text;
-      button.classList.add('btn');
-      addEventListener('click', () => selectOption(option));
-      optionButtonsElement.appendChild(button);
-    }
-  })
+function presentScene() {
+  textElement.innerText = scenes[currentScene].text;
+  const answer = document.getElementById('option-buttons');
+  console.log(answer);
+  /* const answer = prompt(scenes[currentScene].text);
+  handleUserChoise(answer); */
+  
+  /* const button = document.createElement('button');
+  button.innerText = options[0];
+  button.classList.add('btn'); */
 }
 
-function showOption(option) {
-  return true;
-}
 
-function selectOption(option) {
-
-}
-
-startGame();
-
-/* function handleUserChoise(answer) {
+function handleUserChoise(answer) {
   console.log(answer);
 
   if (answer === scenes[currentScene].options[0]) {
@@ -92,13 +99,13 @@ startGame();
   if (answer === scenes[currentScene].options[1]) {
     currentScene = scenes[currentScene].nextScene[1];
   }
-  if (answer === scenes[currentScene].options[3]) {
+/*   if (answer === scenes[currentScene].options[3]) {
     currentScene = scenes[currentScene].nextScene[3];
   }
   if (answer === scenes[currentScene].options[4]) {
     currentScene = scenes[currentScene].nextScene[4];
-  }
+  } */
 
   presentScene();
-} */
+}
 
