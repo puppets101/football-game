@@ -1,17 +1,17 @@
-/* const textElement = document.getElementById('text')
-const optionButtonsElement = document.getElementById('option-buttons') */
+const textElement = document.getElementById('text')
+const optionButtonsElement = document.getElementById('option-buttons')
 
 let currentScene = 0;
 
 const scenes = [  
   { // 0
     text: `You are playing football. Do you want to pass or shoot?`,
-    choices: ['pass', 'shoot'],
+    options: ['pass', 'shoot'],
     nextScene: [1, 2]
   },
   { // 1
     text: `Nice pass! Do you want to stay behind or run along?`,
-    choices: ['stay behind', 'run along'],
+    options: ['stay behind', 'run along'],
     nextScene: [3, 4]
   },
   { // 2
@@ -47,9 +47,12 @@ const scenes = [
 window.onload = presentScene;
 
 function presentScene() {
-  const answer = prompt(scenes[currentScene].text);
+  textElement.innerHTML = scenes[currentScene].text;
+  const button = document.createElement('button');
+  button.innerHTML = scenes[currentScene].options;
+  button.classList.add('btn');
   
-  handleUserChioce(answer);
+/*   handleUserChioce(answer); */
 }
 
 function handleUserChioce(answer) {
