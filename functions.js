@@ -3,29 +3,59 @@ const optionButtonsElement = document.getElementById('option-buttons');
 /* const forms = document.getElementById('forms'); */
 const heading = document.getElementById('heading');
 
+
+
 function startGame() {
   heading.innerHTML = 
   `
   The game of the game
-  `
+  `;
   textElement.innerHTML = 
   `
   <div id="text">Welcome to the Football Game. In this scenario, you are a young man with a passion for football and the scene you're about to interact with takes place in the dying minutes of a football match. You and your team have to win the game to stay in the competition, and the rules are simple, make your way through the opponents and score the winning goal before the referee blows the final whistle. Have in mind that some of your choices have negative consequences. Think like a footballer and you will be celebrated. Good Luck!</div>
-  `
+  `;
   optionButtonsElement.innerHTML = 
   `
-  <button onclick="presentScene()" class="btn">Start Game</button>
+  <button onclick="selectTeams()" class="btn">Select your team</button>
+  `;
+}
+
+function selectTeams() {
+  heading.innerHTML = 
   `
+  Select teams
+  `;
+  textElement.innerHTML = 
+  `
+  <div id="text">
+  <form class="form">
+  <label class="label" for="name">My team</label>
+  <input type="text" id="myTeam" placeholder="Manchester United">
+  <label class="label" for="name">Opponents team:</label>
+  <input type="text" id="opponentsTeam" placeholder="Liverpool">
+  </form>
+  </div>
+  `;
+  optionButtonsElement.innerHTML = 
+  `
+  <button onclick="saveTeam()" class="btn">Start Game</button>
+  `;
+}
+
+function saveTeam() {
+  const myTeam = document.getElementById('myTeam').value;
+  const opponentsTeam = document.getElementById('opponentsTeam').value;
+  presentScene();
 }
 
 function presentScene() {
   heading.innerHTML = 
   `
-  Times almost up!
+  Times almost up for ${myTeam.value}!
   `
   textElement.innerHTML =
   `
-  <div id="text">The game has so far been back and forth. No team is crushing the other, and the clock hits the ninety minutes mark, and you see a board on the sideline telling there are three minutes of extra time. In that very moment, you suddenly get hold of the ball and start sprinting down the pitch. Ahead of you two giant defenders blocks your way.</div>
+  <div id="text">The game has so far been back and forth, but it seems that ${myTeam.value} has the upper hand to ${opponentsTeam.value}. The clock hits the ninety minutes mark, and you see a board on the sideline telling there are three minutes of extra time. In that very moment, you suddenly get hold of the ball and start sprinting down the pitch. Ahead of you two giant defenders blocks your way.</div>
   `;
   optionButtonsElement.innerHTML =
   `
@@ -73,7 +103,7 @@ function headerBall() {
   `;
   textElement.innerHTML = 
   `
-  <div id="text">The ball comes across towards you when you jump to meet it with your head. Everything seems to be in slow motion and just when you're about to hit the ball, your head collides with a defender's head, who tries to clear the ball. Helpless you fall to the ground and blackout. When you wake up, you seem to be in a hospital bed with a bandage over your head.</div>
+  <div id="text">The ball comes across towards you when you jump to meet it with your head. Everything seems to be in slow motion and just when you're about to hit the ball, your head collides with a opponents defender's head, who tries to clear the ball. Helpless you fall to the ground and blackout. When you wake up, you seem to be in a hospital bed with a bandage over your head.</div>
   `;
   optionButtonsElement.innerHTML = 
   `
@@ -89,7 +119,7 @@ function volleyBall() {
   `;
   textElement.innerHTML = 
   `
-  <div id="text">The ball comes flying towards you when you take a few steps back to hit it with a volley shot. The defenders are closing in when you hit the ball. The ball comes off the hand of the defender. You and all your teammates call for a penalty. The referee is not sure he has to check with the Video assistant referees. There's tension on the pitch when he comes back. He blows his whistle and points to the penalty spot.</div>
+  <div id="text">The ball comes flying towards you when you take a few steps back to hit it with a volley shot. The defenders are closing in when you hit the ball. The ball comes off the hand of the defender. You and all the supporters call for a penalty. The referee is not sure he has to check with the Video assistant referees. There's tension on the pitch when he comes back. He blows his whistle and points to the penalty spot.</div>
   `;
   optionButtonsElement.innerHTML = 
   `
@@ -152,7 +182,7 @@ function penaltyPower() {
   `;
   textElement.innerHTML =
   `
-  <div id="text">OUCH! You have failed. You hit the ball way too hard for you to handle the aim. The ball flies way over the crossbar, and you put your hands over your head as the referee blows the final whistle. You feel like you let your team down, but one ofter one comes to comfort you.</div>
+  <div id="text">OUCH! You have failed. You hit the ball way too hard for you to handle the aim. The ball flies way over the crossbar, and you put your hands over your head as the referee blows the final whistle. You feel like you let everyone down, but one after one of your teammates comes to comfort you.</div>
   `;
   optionButtonsElement.innerHTML = 
   `
@@ -202,7 +232,7 @@ function findOutScore() {
   `
   textElement.innerHTML =
   `
-  <div id="text">Your grogginess quickly disappears when you realise the game must be finished by now. You ask the doctor to find out the score in the game but he looks serious at you and tells you to listen to him. He starts by talking of meaning of life and how lucky you are to be here. You and he have a long discussion, and after a while, you don't even bother to find out the score.</div>
+  <div id="text">Your grogginess quickly disappears when you realise the game must be finished by now. You ask the doctor to find out the score in the game, but he looks serious at you and tells you to listen to him. He starts by talking of meaning of life and how lucky you are to be here. You and he have a long discussion, and after a while, you don't even bother to find out the score.</div>
   `;
   optionButtonsElement.innerHTML =
   `
@@ -234,7 +264,7 @@ function playFootballAgain() {
   `
   textElement.innerHTML =
   `
-  <div id="text">You have just been told you suffered a concussion and that you shouldn't keep playing football. You feel sad, but at the same time relieved, you start thinking of your future and your dream job as a web developer and how much time this pro football career takes. A couple of days later you are back home, open your laptop, and type your very first code: console.log('Hello World!');</div>
+  <div id="text">You have just been told you suffered a concussion and that you shouldn't keep playing football. You feel sad, but at the same time relieved, you start thinking of your future and your dream job as a web developer and how much time this football career takes up for you. A couple of days later you are back home, open your laptop, and type your very first code: console.log('Hello World!');</div>
   `;
   optionButtonsElement.innerHTML =
   `
