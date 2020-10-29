@@ -65,7 +65,7 @@ function saveTeam() {
   presentScene();
 }
 
-// FIRST SCENE
+// FIRST SCENE - first act 
 /**
  * 
  */
@@ -85,7 +85,7 @@ function presentScene() {
   `;
 }
 
-// Option for first scene
+// Option for first scene - first act
 function dribbleBall() {
   heading.innerHTML = 
   `
@@ -102,7 +102,7 @@ function dribbleBall() {
   `;
 }
 
-// Option for first scene
+// Option for first scene - first act
 function passBall() {
   heading.innerHTML = 
   `
@@ -260,24 +260,8 @@ function chipIt() {
   `;
 }
 
-// Reusable answear functions
-
-function findOutScore() {
-  heading.innerHTML = 
-  `
-  What is the score??
-  `
-  textElement.innerHTML =
-  `
-  <div id="text">Your grogginess quickly disappears when you realise the game must be finished by now. You ask the doctor to find out the score in the game, but he looks serious at you and tells you to listen to him. He starts by talking of meaning of life and how lucky you are to be here. You and he have a long discussion, and after a while, you don't even bother to find out the score.</div>
-  `;
-  optionButtonsElement.innerHTML =
-  `
-  <button onclick="startGame()" class="btn">Play Again</button>
-  `;
-}
-
-// Side track
+// SIDETRACKS
+// FIRST SCENE - second act - sidetrack
 function callForDoctor() {
   heading.innerHTML = 
   `
@@ -294,6 +278,7 @@ function callForDoctor() {
   `;
 }
 
+// FIRST SCENE - second act - sidetrack
 function playFootballAgain() {
   heading.innerHTML = 
   `
@@ -309,4 +294,21 @@ function playFootballAgain() {
   `;
 }
 
+// FIRST SCENE - second act - sidetrack
+function findOutScore() {
+  heading.innerHTML = 
+  `
+  What is the score??
+  `
+  textElement.innerHTML =
+  `
+  <div id="text">Your grogginess quickly disappears when you realise the game must be finished by now. You ask the doctor to find out the score in the game, but he looks serious at you and tells you to listen to him. He starts by talking of meaning of life and how lucky you are to be here. You and he have a long discussion, and after a while, you don't even bother to find out the score.</div>
+  `;
+  optionButtonsElement.innerHTML =
+  `
+  <button onclick="startGame()" class="btn">Play Again</button>
+  `;
+}
+
+// Calls startGame when page load
 startGame();
