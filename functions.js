@@ -12,7 +12,7 @@ function startGame() {
   `;
   textElement.innerHTML = 
   `
-  <div id="text">Welcome to the Football Game. In this scenario, you are a young man with a passion for football and the scene you're about to interact with takes place in the dying minutes of a football match. You and your team have to win the game to stay in the competition, and the rules are simple, make your way through the opponents and score the winning goal before the referee blows the final whistle. Have in mind that some of your choices have negative consequences. Think like a footballer and you will be celebrated. Good Luck!</div>
+  <div id="text">Welcome to the Football Game. In this scenario, you are a young lad with a passion for football and the scene you're about to interact with takes place in the dying minutes of a football match. You and your team have to win the game to stay in the competition, and the rules are simple, make your way through the opponents and score the winning goal before the referee blows the final whistle. Have in mind that some of your choices have negative consequences. Think like a footballer and you will be celebrated. Good Luck!</div>
   `;
   optionButtonsElement.innerHTML = 
   `
