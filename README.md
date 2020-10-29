@@ -7,4 +7,4 @@ This assignment is to build an interactive text-based game where the user can ma
 The user plays a scenario from a football match as a young lad with a big passion for football in a team of the users choice. The user also gets to decide the opponent team. 
 Take the character on to the field and try to find a way to get past whatever obstacle one find on the way. 
 
-
+### Link to the game page [here](https://puppets101.github.io/football-game/)
