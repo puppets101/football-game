@@ -1,7 +1,10 @@
-# football-game
+# Laboration 1
 
-A football game where the player interacts with multiple choices during the game.
+This assignment is to build an interactive text-based game where the user can make its own choices during the game. The choices are declared all throughout the game and are displayed on the page together with the scenario. The choices may affect the outcome of the game and there's not only one way to finish. 
 
-## How to play
+## About the game
 
-It's up to the player to try to get past the opponents and score the winning goal in a football match by choosing different methods to get the ball into the opponents net. But watch out! The wrong decision could mean the opponent's score and the player has lost the game. 
+The user plays a scenario from a football match as a young lad with a big passion for football in a team of the users choice. The user also gets to decide the opponent team. 
+Take the character on to the field and try to find a way to get past whatever obstacle one find on the way. 
+
+
