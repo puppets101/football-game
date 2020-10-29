@@ -1,10 +1,12 @@
+// Declare variables and get from DOM
 const textElement = document.getElementById('text');
 const optionButtonsElement = document.getElementById('option-buttons');
-/* const forms = document.getElementById('forms'); */
 const heading = document.getElementById('heading');
 
-
-
+/**
+ * Start game function
+ * Describes the game
+ */
 function startGame() {
   heading.innerHTML = 
   `
@@ -12,7 +14,7 @@ function startGame() {
   `;
   textElement.innerHTML = 
   `
-  <div id="text">Welcome to the Football Game. In this scenario, you are a young lad with a passion for football and the scene you're about to interact with takes place in the dying minutes of a football match. You and your team have to win the game to stay in the competition, and the rules are simple, make your way through the opponents and score the winning goal before the referee blows the final whistle. Have in mind that some of your choices have negative consequences. Think like a footballer and you will be celebrated. Good Luck!</div>
+  <div id="text">Welcome to the Football Game. In this scenario, you are a young lad with a passion for football and the scene you're about to interact with takes place in the dying minutes of a football match. You and your team have to win the game to stay in the competition, and the rules are simple, make your way through the opponents and score the winning goal before the referee blows the final whistle. Have in mind that the choices you make may affect the outcome of the game. Think like a footballer and you will be celebrated. Good Luck!</div>
   `;
   optionButtonsElement.innerHTML = 
   `
@@ -20,11 +22,17 @@ function startGame() {
   `;
 }
 
+/**
+ * User select teams
+ */
 function selectTeams() {
   heading.innerHTML = 
   `
   Select teams
   `;
+  /**
+   * Show a form for user to type in two teams
+   */
   textElement.innerHTML = 
   `
   <div id="text">
@@ -36,18 +44,31 @@ function selectTeams() {
   </form>
   </div>
   `;
+  /**
+   * When clicked the teams are saved in saveTeam() and the game starts
+   */
   optionButtonsElement.innerHTML = 
   `
   <button onclick="saveTeam()" class="btn">Start Game</button>
   `;
 }
 
+/**
+ * Save the users input of teams to variables
+ */
 function saveTeam() {
   const myTeam = document.getElementById('myTeam').value;
   const opponentsTeam = document.getElementById('opponentsTeam').value;
+  /**
+   * Calls presentScene function to start the game
+   */
   presentScene();
 }
 
+// FIRST SCENE
+/**
+ * 
+ */
 function presentScene() {
   heading.innerHTML = 
   `
@@ -64,6 +85,7 @@ function presentScene() {
   `;
 }
 
+// Option for first scene
 function dribbleBall() {
   heading.innerHTML = 
   `
@@ -73,12 +95,14 @@ function dribbleBall() {
   `
   <div id="text">You try to dribble past the defenders with some tricks you've only seen Ronaldinho do and you have overestimated your own ability to dribble. The defenders intercept and take the ball. You realise your mistake and try to get the ball back but to no use. The defenders block the ball too well and the time runs out. The referee blows his whistle, and the game is over.</div>
   `;
+  // Restart game
   optionButtonsElement.innerHTML = 
   `
-  <button onclick="playAgain()" class="btn">Restart Game</button>
+  <button onclick="startGame()" class="btn">Restart Game</button>
   `;
 }
 
+// Option for first scene
 function passBall() {
   heading.innerHTML = 
   `
@@ -96,6 +120,8 @@ function passBall() {
   `;
 }
 
+// FIRST SCENE - second act
+// Option for first scene - second act
 function headerBall() {
   heading.innerHTML = 
   `
@@ -112,6 +138,8 @@ function headerBall() {
   `;
 }
 
+// FIRST SCENE - second act
+// Option for first scene - second act
 function volleyBall() {
   heading.innerHTML = 
   `
@@ -128,6 +156,25 @@ function volleyBall() {
   `;
 }
 
+// FIRST SCENE - second act
+// Option for first scene - second act
+function bicicletaBall() {
+  heading.innerHTML = 
+  `
+  Zlatan can teach you
+  `;
+  textElement.innerHTML =
+  `
+  <div id="text">The ball comes flying towards you when you try to time it with an overhead kick, but you are no Zlatan. You miss time it and falls to the ground. You can hear the laugher from the stands, and your teammates look disappointed. Not long after, the referee blows the final whistle. You keep laying on the ground looking up to the sky and thinking about next season. Maybe if you practise extra on the overhead kick, you be able to do it properly next time.</div>
+  `;
+  optionButtonsElement.innerHTML = 
+  `
+  <button onclick="startGame()" class="btn">Restart game</button>
+  `;
+}
+
+// FIRST SCENE - third act
+// Option for first scene - third act
 function takePenalty() {
   heading.innerHTML = 
   `
@@ -145,6 +192,8 @@ function takePenalty() {
   `;
 }
 
+// FIRST SCENE - third act
+// Option for first scene - third act
 function dontTakePenalty() {
   heading.innerHTML = 
   `
@@ -156,25 +205,12 @@ function dontTakePenalty() {
   `;
   optionButtonsElement.innerHTML = 
   `
-  <button onclick="playAgain()" class="btn">Restart game</button>
+  <button onclick="startGame()" class="btn">Restart game</button>
   `;
 }
 
-function bicicletaBall() {
-  heading.innerHTML = 
-  `
-  Zlatan can teach you
-  `;
-  textElement.innerHTML =
-  `
-  <div id="text">The ball comes flying towards you when you try to time it with an overhead kick, but you are no Zlatan. You miss time it and falls to the ground. You can hear the laugher from the stands, and your teammates look disappointed. Not long after, the referee blows the final whistle. You keep laying on the ground looking up to the sky and thinking about next season. Maybe if you practise extra on the overhead kick, you be able to do it properly next time.</div>
-  `;
-  optionButtonsElement.innerHTML = 
-  `
-  <button onclick="playAgain()" class="btn">Restart game</button>
-  `;
-}
-
+// FIRST SCENE - fourth act
+// Option for first scene - fourth act
 function penaltyPower() {
   heading.innerHTML = 
   `
@@ -186,10 +222,12 @@ function penaltyPower() {
   `;
   optionButtonsElement.innerHTML = 
   `
-  <button onclick="playAgain()" class="btn">Restart Game</button>
+  <button onclick="startGame()" class="btn">Restart Game</button>
   `;
 }
 
+// FIRST SCENE - fourth act
+// Option for first scene - fourth act
 function placeIt() {
   heading.innerHTML = 
   `
@@ -201,10 +239,12 @@ function placeIt() {
   `;
   optionButtonsElement.innerHTML = 
   `
-  <button onclick="playAgain()" class="btn">Play Again</button>
+  <button onclick="startGame()" class="btn">Play Again</button>
   `;
 }
 
+// FIRST SCENE - fourth act
+// Option for first scene - fourth act
 function chipIt() {
   heading.innerHTML = 
   `
@@ -216,14 +256,11 @@ function chipIt() {
   `;
   optionButtonsElement.innerHTML = 
   `
-  <button onclick="playAgain()" class="btn">Restart Game</button>
+  <button onclick="startGame()" class="btn">Restart Game</button>
   `;
 }
 
-// Reusable answers
-function playAgain() {
-  startGame();
-}
+// Reusable answear functions
 
 function findOutScore() {
   heading.innerHTML = 
@@ -236,7 +273,7 @@ function findOutScore() {
   `;
   optionButtonsElement.innerHTML =
   `
-  <button onclick="playAgain()" class="btn">Play Again</button>
+  <button onclick="startGame()" class="btn">Play Again</button>
   `;
 }
 
@@ -268,7 +305,7 @@ function playFootballAgain() {
   `;
   optionButtonsElement.innerHTML =
   `
-  <button onclick="playAgain()" class="btn">Play Again</button>
+  <button onclick="startGame()" class="btn">Play Again</button>
   `;
 }
 
