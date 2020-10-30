@@ -1,8 +1,6 @@
 // Declare variables and get from DOM
 /**
- * @param {heading} * Get heading from the DOM
- * @param {optionButtonsElement} * Get options from the DOM
- * @param {textElement} * Get text from the DOM
+ * @type {HTMLHeadingElement} Get heading from the DOM
  */
 const heading = document.getElementById('heading');
 const textElement = document.getElementById('text');
@@ -202,9 +200,9 @@ function takePenalty() {
 // Option for first scene - third act
 function dontTakePenalty() {
   heading.innerHTML = 
-  `
-  So you chickened out
-  `
+    `
+    So you chickened out
+    `
   textElement.innerHTML =
   `
   <div id="text">You can't believe your ears you just told the team captain that you can't take the penalty. It must be the nerves, all your life you have been the first to run to the penalty spot, eager to shoot for fame and glory. You are so nervous that you almost can't watch it. With one eye open, you see the ball flies off over the crossbar. You resent over your choice not to take the penalty, but it's too late. The referee blows the final whistle.</div>
