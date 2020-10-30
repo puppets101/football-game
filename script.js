@@ -18,16 +18,16 @@ function startGame() {
 // Define the actions 
 /**
  * 
- * @param {presentScene} textIndex 
+ * @param {presentScene} sceneIndex 
  */
-function presentScene(textIndex) {
-  const sceneText = scenes.find(sceneText => sceneText.id === textIndex);
-  textElement.innerText = sceneText.text;
+function presentScene(sceneIndex) {
+  const scene = scenes.find(scene => scene.id === sceneIndex);
+  textElement.innerText = scene.text;
   while (optionButtonsElement.firstChild) {
     optionButtonsElement.removeChild(optionButtonsElement.firstChild);
   }
 
-  sceneText.options.forEach(option => {
+  scene.options.forEach(option => {
     if(showOption(option)) {
       const button = document.createElement('button');
       button.innerText = option.text;
@@ -104,7 +104,7 @@ const scenes = [
       },
       {
         text: `Do a bicicleta`,
-        nextText: 16
+        nextText: 7
       },
     ]
   },
@@ -115,10 +115,11 @@ const scenes = [
     options: [
       {
         text: `Press button to call for doctor`,
-        nextText: 8
+        nextText: 9
       },
       {
-        text: `Put on tv to find out the score`,
+        text: `Call for doctor to find out the score`,
+        nextText: 10
       },
     ]
   },
@@ -137,12 +138,19 @@ const scenes = [
       }
     ]
   },
+  // Bicicleta
   {
     id: 7,
-    text: `You collide mid air with the opponent defender's head and you feel like your skull is broken. The medical team quickly get you on a strecher and you are out of the game.`,
-    nextText: -1
+    text: `The ball comes flying towards you when you try to time it with an overhead kick, but you are no Zlatan. You miss time it and falls to the ground. You can hear the laugher from the stands, and your teammates look disappointed. Not long after, the referee blows the final whistle. You keep laying on the ground looking up to the sky and thinking about next season. Maybe if you practise extra on the overhead kick, you be able to do it properly next time.`,
+    options: [
+      {
+        text: `Restart Game`,
+        nextText: 1
+      }
+    ]
   },
-  {
+  // Injured
+/*   {
     id: 8,
     text: `You feel groggy, but also you know your place around a hospital, you've been to several over the years for football accidents. Into the room, a man walks in a white robe and you quickly notice his title: Head of neurology. He looks serious at you and tells you that this could have gone very bad.`,
     options: [
@@ -155,7 +163,7 @@ const scenes = [
         nextText: 10
       }
     ]
-  },
+  }, */
   {
     id: 9,
     text: `You have just been told you suffered a concussion and that you shouldn't keep playing football. You feel sad, but at the same time relieved, you start thinking of your future and your dream job as a web developer and how much time this football career takes up for you. A couple of days later you are back home, open your laptop, and type your very first code: console.log('Hello World!');`,
@@ -168,7 +176,7 @@ const scenes = [
   },
   {
     id: 10,
-    text: `Your grogginess quickly disappears when you realise the game must be finished by now. You ask the doctor to find out the score in the game, but he looks serious at you and tells you to listen to him. He starts by talking of meaning of life and how lucky you are to be here. You and he have a long discussion, and after a while, you don't even bother to find out the score.`,
+    text: `Your grogginess quickly disappears and you ask the doctor to find out the score in the game, but he looks serious at you and tells you to listen to him. He starts by talking of meaning of life and how lucky you are to be here. You and he have a long discussion, and after a while, you don't even bother to find out the score.`,
     options: [
       {
         text: `Play Again`,
@@ -227,16 +235,6 @@ const scenes = [
   {
     id: 15,
     text: `You had it all planned out, you were going to be on everyone's lips, in every sports section of the newspapers, after chipping the ball into the goal. You're smile thinking of the glory quickly disappears when you see the goalkeeper easily scope the ball in his bosom. The referee blows the final whistle and you realise the aftermath won't be a walk in a park.`,
-    options: [
-      {
-        text: `Restart Game`,
-        nextText: 1
-      }
-    ]
-  },
-  {
-    id: 16,
-    text: `The ball comes flying towards you when you try to time it with an overhead kick, but you are no Zlatan. You miss time it and falls to the ground. You can hear the laugher from the stands, and your teammates look disappointed. Not long after, the referee blows the final whistle. You keep laying on the ground looking up to the sky and thinking about next season. Maybe if you practise extra on the overhead kick, you be able to do it properly next time.`,
     options: [
       {
         text: `Restart Game`,
