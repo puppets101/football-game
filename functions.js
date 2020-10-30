@@ -2,9 +2,10 @@
 const heading = document.getElementById('heading');
 /** @type {HTMLHtmlElement} Get text div element from the DOM */
 const textElement = document.getElementById('text');
-/** @type {HTMLButtonElement} Get option buttons element from the DOM */
+/** @type {HTMLButtonElement} Get option buttons div element from the DOM */
 const optionButtonsElement = document.getElementById('option-buttons');
 
+/** @returns {innerHTML} Return heading text and option buttons for actual scene*/
 function startGame() {
   heading.innerHTML = 
     `The game of the game`;
@@ -17,7 +18,7 @@ function startGame() {
 function selectTeams() {
   heading.innerHTML = 
     `Select teams`;
-  // Show a form to user to select two teams
+  // Lets user type two teams in an input field
   textElement.innerHTML = 
     `
     <div id="text">
@@ -29,21 +30,15 @@ function selectTeams() {
     </form>
     </div>
     `;
-  // When clicked the teams are saved in saveTeam() and the game starts
   optionButtonsElement.innerHTML = 
     `<button onclick="saveTeam()" class="btn">Start Game</button>`;
 }
 
-// Save the users input of teams to variables
 function saveTeam() {
-  /** @type {HTMLInputElement} Saves the users input to myTeam variable */
-  const myTeam = document.getElementById('myTeam').value;
-  /** @type {HTMLInputElement} Saves the users input to opponentsTeam variable */
-  const opponentsTeam = document.getElementById('opponentsTeam').value;
   presentScene();
 }
 
-// FIRST SCENE - first act 
+/** @returns {innerHTML} Return heading text and option buttons for actual scene */
 function presentScene() {
   heading.innerHTML = 
     `Times almost up for ${myTeam.value}!`;
@@ -56,7 +51,7 @@ function presentScene() {
     `;
 }
 
-// Option for first scene - first act
+/** @returns {innerHTML} Return heading text and option buttons for actual scene*/
 function dribbleBall() {
   heading.innerHTML = 
   `You think you are Ronaldinho?`;
@@ -66,7 +61,7 @@ function dribbleBall() {
     `<button onclick="startGame()" class="btn">Restart Game</button>`;
 }
 
-// Option for first scene - first act
+/** @returns {innerHTML} Return heading text and option buttons for actual scene*/
 function passBall() {
   heading.innerHTML = 
     `Better safe than sorry!`;
@@ -80,8 +75,7 @@ function passBall() {
     `;
 }
 
-// FIRST SCENE - second act
-// Option for first scene - second act
+/** @returns {innerHTML} Return heading text and option buttons for actual scene*/
 function headerBall() {
   heading.innerHTML = 
     `Get your head out of the game!`;
@@ -90,12 +84,11 @@ function headerBall() {
   optionButtonsElement.innerHTML = 
     `
     <button onclick="callForDoctor()" class="btn">Press button to call for doctor</button>
-    <button onclick="findOutScore()" class="btn">Put on tv to find out the score</button>
+    <button onclick="findOutScore()" class="btn">Try to find out the score</button>
     `;
 }
 
-// FIRST SCENE - second act
-// Option for first scene - second act
+/** @returns {innerHTML} Return heading text and option buttons for actual scene*/
 function volleyBall() {
   heading.innerHTML = 
     `VAR is with you`;
@@ -108,8 +101,7 @@ function volleyBall() {
     `;
 }
 
-// FIRST SCENE - second act
-// Option for first scene - second act
+/** @returns {innerHTML} Return heading text and option buttons for actual scene*/
 function bicicletaBall() {
   heading.innerHTML = 
     `Zlatan can teach you`;
@@ -119,8 +111,7 @@ function bicicletaBall() {
     `<button onclick="startGame()" class="btn">Restart game</button>`;
 }
 
-// FIRST SCENE - third act
-// Option for first scene - third act
+/** @returns {innerHTML} Return heading text and option buttons for actual scene*/
 function takePenalty() {
   heading.innerHTML = 
     `Nerves of steel`;
@@ -134,8 +125,7 @@ function takePenalty() {
     `;
 }
 
-// FIRST SCENE - third act
-// Option for first scene - third act
+/** @returns {innerHTML} Return heading text and option buttons for actual scene*/
 function dontTakePenalty() {
   heading.innerHTML = 
     `So you chickened out`;
@@ -145,8 +135,7 @@ function dontTakePenalty() {
     `<button onclick="startGame()" class="btn">Restart game</button>`;
 }
 
-// FIRST SCENE - fourth act
-// Option for first scene - fourth act
+/** @returns {innerHTML} Return heading text and option buttons for actual scene*/
 function penaltyPower() {
   heading.innerHTML = 
     `God dammit!`;
@@ -156,8 +145,7 @@ function penaltyPower() {
     `<button onclick="startGame()" class="btn">Restart Game</button>`;
 }
 
-// FIRST SCENE - fourth act
-// Option for first scene - fourth act
+/** @returns {innerHTML} Return heading text and option buttons for actual scene*/
 function placeIt() {
   heading.innerHTML = 
     `Man of the match!`;
@@ -167,8 +155,7 @@ function placeIt() {
     `<button onclick="startGame()" class="btn">Play Again</button>`;
 }
 
-// FIRST SCENE - fourth act
-// Option for first scene - fourth act
+/** @returns {innerHTML} Return heading text and option buttons for actual scene*/
 function chipIt() {
   heading.innerHTML = 
     `You vs the goalkeeper`;
@@ -178,8 +165,7 @@ function chipIt() {
     `<button onclick="startGame()" class="btn">Restart Game</button>`;
 }
 
-// SIDETRACKS
-// FIRST SCENE - second act - sidetrack
+/** @returns {innerHTML} Return heading text and option buttons for actual scene*/
 function callForDoctor() {
   heading.innerHTML = 
     `Lucky to be alive`;
@@ -192,7 +178,7 @@ function callForDoctor() {
     `;
 }
 
-// FIRST SCENE - second act - sidetrack
+/** @returns {innerHTML} Return heading text and option buttons for actual scene*/
 function playFootballAgain() {
   heading.innerHTML = 
     `Thinking about the future`;
@@ -202,12 +188,12 @@ function playFootballAgain() {
     `<button onclick="startGame()" class="btn">Play Again</button>`;
 }
 
-// FIRST SCENE - second act - sidetrack
+/** @returns {innerHTML} Return heading text and option buttons for actual scene*/
 function findOutScore() {
   heading.innerHTML = 
     `What is the score??`;
   textElement.innerHTML =
-    `<div id="text">Your grogginess quickly disappears when you realise the game must be finished by now. You ask the doctor to find out the score in the game, but he looks serious at you and tells you to listen to him. He starts by talking of meaning of life and how lucky you are to be here. You and he have a long discussion, and after a while, you don't even bother to find out the score.</div>`;
+    `<div id="text">You are so eager to find out the score you call for someone and inte the room walks a woman with a white robe. She starts by talking of meaning of life and how lucky you are to be here. You and she have a long discussion, and after a while, you don't even bother to find out the score.</div>`;
   optionButtonsElement.innerHTML =
     `<button onclick="startGame()" class="btn">Play Again</button>`;
 }
