@@ -1,7 +1,12 @@
 // Declare variables and get from DOM
+/**
+ * @param {heading} * Get heading from the DOM
+ * @param {optionButtonsElement} * Get options from the DOM
+ * @param {textElement} * Get text from the DOM
+ */
+const heading = document.getElementById('heading');
 const textElement = document.getElementById('text');
 const optionButtonsElement = document.getElementById('option-buttons');
-const heading = document.getElementById('heading');
 
 /**
  * Start game function
@@ -67,7 +72,8 @@ function saveTeam() {
 
 // FIRST SCENE - first act 
 /**
- * 
+ * @param {myTeam.value} * Show the team the user selected
+ * @param {opponentsTeam.value} * Show the opponent teams the user selected 
  */
 function presentScene() {
   heading.innerHTML = 
