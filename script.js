@@ -1,25 +1,14 @@
-// Get text- and optionbuttons element from the DOM
-/**
- * @param {textElement} * Get text div element from DOM
- * @param {optionButtonsElement} * Get option buttons element from DOM
- */
+/** @type {HTMLHtmlElement} Get text div element from DOM */
 const textElement = document.getElementById('text');
 const optionButtonsElement = document.getElementById('option-buttons');
 
-// Start game
-/**
- * @param {presentScene} * function calls precentScene with the id of 1
- */
+
 function startGame() {
   presentScene(1);
 }
 
 
-// Define the actions 
-/**
- * 
- * @param {presentScene} sceneIndex 
- */
+/** @param  */
 function presentScene(sceneIndex) {
   const scene = scenes.find(scene => scene.id === sceneIndex);
   textElement.innerText = scene.text;
